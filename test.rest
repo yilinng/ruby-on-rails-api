@@ -1,0 +1,45 @@
+POST http://localhost:3001/users
+Content-Type: application/json
+
+{
+    "username": "Tom Mush",
+    "email": "test12@test.com",
+    "password": "test12"
+}
+
+###
+POST http://localhost:3001/login
+Content-Type: application/json
+
+{
+    "email": "test@test.com",
+    "password": "test"
+}
+
+###
+GET http://localhost:3001/auto_login
+Content-Type: application/json
+Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Mjg1NzY2NDB9.YbMv9chL4S50bUiQgWLob6HXDTGZENnVz5JHtUTqXxU"
+
+###
+DELETE http://localhost:3001/logout
+Content-Type: application/json
+Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Mjg2NjQ2Mzh9.RCi2PdozJ3iNJFx-J3fHzm_I4cyNlDH2v1M7quVukEw"
+
+###
+POST http://localhost:3001/notes
+Content-Type: application/json
+Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2MjgzMzI5MTl9.cZ9JxEn-uRtYcPtUpQq98WhKTqWL_VzSrUJBjxKUiIw"
+
+{
+    "title": "Tom 1st post",
+    "content": "Notice the changes are mainly to the create and index function. The change to the index function makes sure that we are only grabbing notes of the particular user and the changes in create makes sure every user is assigned a user_id at creation.",
+    "tag": "html, java, css"
+}
+
+###
+GET http://localhost:3001/notes
+Content-Type: application/json
+Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Mjg1NzY2NDB9.YbMv9chL4S50bUiQgWLob6HXDTGZENnVz5JHtUTqXxU"
+###
+
