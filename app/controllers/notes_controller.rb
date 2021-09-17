@@ -1,9 +1,16 @@
 class NotesController < ApplicationController
-  before_action :set_note, only: [:show, :update, :destroy]
-  before_action :authorized
+  before_action :set_note, only: [:update, :destroy]
+  before_action :authorized, only: [:create, :update, :destroy, :notelist]
 
   # GET /notes
   def index
+    @notes = Note.all #Note.where(user_id: @user.id)
+
+    render json: @notes
+  end
+
+  #Related user's notes
+  def notelist
     @notes = Note.where(user_id: @user.id)
 
     render json: @notes
@@ -48,6 +55,6 @@ class NotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def note_params
-      params.require(:note).permit(:title, :content, :tag, :user_id)
+      params.require(:note).permit(:title, :content, :user_id, :tags => [])
     end
 end

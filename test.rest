@@ -1,45 +1,57 @@
+### register
 POST http://localhost:3001/users
 Content-Type: application/json
 
 {
-    "username": "Tom Mush",
-    "email": "test12@test.com",
-    "password": "test12"
+    "username": "crart",
+    "email": "test123@test.com",
+    "password": "test",
+    "role": "basic"
 }
+
 
 ###
 POST http://localhost:3001/login
 Content-Type: application/json
 
 {
-    "email": "test@test.com",
-    "password": "test"
+    "email": "test12@test.com",
+    "password": "test12"
 }
+
+###
+GET http://localhost:3001/userlist
+Content-Type: application/json
+Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMywiZXhwIjoxNjMxODgyNTUwfQ.-BeK5DpCLBiQKtT7pEwPyEeqI_bhFeLBzPRYGSUxBxE"
 
 ###
 GET http://localhost:3001/auto_login
 Content-Type: application/json
-Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Mjg1NzY2NDB9.YbMv9chL4S50bUiQgWLob6HXDTGZENnVz5JHtUTqXxU"
+Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMywiZXhwIjoxNjMxODgyNTUwfQ.-BeK5DpCLBiQKtT7pEwPyEeqI_bhFeLBzPRYGSUxBxE"
 
 ###
 DELETE http://localhost:3001/logout
 Content-Type: application/json
-Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Mjg2NjQ2Mzh9.RCi2PdozJ3iNJFx-J3fHzm_I4cyNlDH2v1M7quVukEw"
+Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMywiZXhwIjoxNjMxODgyNTUwfQ.-BeK5DpCLBiQKtT7pEwPyEeqI_bhFeLBzPRYGSUxBxE"
 
 ###
 POST http://localhost:3001/notes
 Content-Type: application/json
-Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2MjgzMzI5MTl9.cZ9JxEn-uRtYcPtUpQq98WhKTqWL_VzSrUJBjxKUiIw"
+Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMywiZXhwIjoxNjMxODgyNTUwfQ.-BeK5DpCLBiQKtT7pEwPyEeqI_bhFeLBzPRYGSUxBxE"
 
 {
-    "title": "Tom 1st post",
-    "content": "Notice the changes are mainly to the create and index function. The change to the index function makes sure that we are only grabbing notes of the particular user and the changes in create makes sure every user is assigned a user_id at creation.",
-    "tag": "html, java, css"
+    "title": "crart tips",
+    "content": "On databases that support transactions with statements that change the schema, migrations are wrapped in a transaction. If the database does not support this then when a migration fails the parts of it that succeeded will not be rolled back. You will have to rollback the changes that were made by hand.",
+    "tags": ["java", "javascript"]
 }
 
 ###
 GET http://localhost:3001/notes
 Content-Type: application/json
-Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Mjg1NzY2NDB9.YbMv9chL4S50bUiQgWLob6HXDTGZENnVz5JHtUTqXxU"
+Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMywiZXhwIjoxNjMxODgyNTUwfQ.-BeK5DpCLBiQKtT7pEwPyEeqI_bhFeLBzPRYGSUxBxE"
 ###
+
+GET http://localhost:3001/notelist
+Content-Type: application/json
+Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMywiZXhwIjoxNjMxODgyNTUwfQ.-BeK5DpCLBiQKtT7pEwPyEeqI_bhFeLBzPRYGSUxBxE"
 

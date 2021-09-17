@@ -1,5 +1,19 @@
 class UsersController < ApplicationController
-    before_action :authorized, only: [:auto_login, :destroy]
+    before_action :authorized, only: [:auto_login, :destroy, :index]
+
+    # all user accounts lsit
+    def index
+
+     @user.role == 'basic'
+
+      if @user.role == 'basic'
+      return  render json: {message: 'you cannot see it'}
+      end
+      @user = User.all
+
+      render json: { user: @user }
+    end
+
   
     # REGISTER
     def create
@@ -13,8 +27,19 @@ class UsersController < ApplicationController
       if @user.valid?
         exp = Time.now.to_i + 300*60
         token = encode_token({user_id: @user.id, exp: exp})
-        session[:user_id] = @user.id
-        render json: {user: @user, token: token}
+
+        @token = Token.new(token_params)
+        @token.accesstoken = token
+        @token.user_id = @user.id
+
+        if @token.save
+
+          session[:user_id] = @user.id
+          session[:token] = token
+          render json: {user: @user, token: token}
+        else
+          render json: @token.errors, status: :unprocessable_entity
+        end
       else
         render json: {error: "Invalid username or password"}
       end
@@ -32,7 +57,7 @@ class UsersController < ApplicationController
         #thus it’s not vulnerable to XSS attacks. As well, the cookie value is encrypted
 
         @findToken = Token.find_by(user_id: @user.id)
-
+        #checkexpired = Time.now.to_i >= @findToken.created_at.to_i + 1*60
         if @findToken  
         return render json: {message: "user is login"}, status: :forbidden
         end
@@ -44,7 +69,7 @@ class UsersController < ApplicationController
 
         if @token.save
           session[:token] = token
-          render json: {user: @user, token: token } 
+          render json: {user: @user, token: token} 
         else
           render json: @token.errors, status: :unprocessable_entity
         end
@@ -68,7 +93,7 @@ class UsersController < ApplicationController
     private
   
     def user_params
-      params.permit(:username, :email, :password)
+      params.permit(:username, :email, :password, :role)
     end
 
     def token_params
