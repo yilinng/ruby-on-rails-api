@@ -15,29 +15,29 @@ POST http://localhost:3001/login
 Content-Type: application/json
 
 {
-    "email": "test12@test.com",
-    "password": "test12"
+    "email": "admin@admin.com",
+    "password": "admin"
 }
 
 ###
 GET http://localhost:3001/userlist
 Content-Type: application/json
-Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMywiZXhwIjoxNjMxODgyNTUwfQ.-BeK5DpCLBiQKtT7pEwPyEeqI_bhFeLBzPRYGSUxBxE"
+Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMiwiZXhwIjoxNjMyMzMwNTk5fQ.j1x-dGVaAfglDNuBDdnHLI6MQYBj5dZ1YOG_aQFvOmA"
 
 ###
 GET http://localhost:3001/auto_login
 Content-Type: application/json
-Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMywiZXhwIjoxNjMxODgyNTUwfQ.-BeK5DpCLBiQKtT7pEwPyEeqI_bhFeLBzPRYGSUxBxE"
+Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMiwiZXhwIjoxNjMyMzMwNTk5fQ.j1x-dGVaAfglDNuBDdnHLI6MQYBj5dZ1YOG_aQFvOmA"
 
 ###
 DELETE http://localhost:3001/logout
 Content-Type: application/json
-Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMywiZXhwIjoxNjMxODgyNTUwfQ.-BeK5DpCLBiQKtT7pEwPyEeqI_bhFeLBzPRYGSUxBxE"
+Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMiwiZXhwIjoxNjMyMzMwNTk5fQ.j1x-dGVaAfglDNuBDdnHLI6MQYBj5dZ1YOG_aQFvOmA"
 
 ###
 POST http://localhost:3001/notes
 Content-Type: application/json
-Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMywiZXhwIjoxNjMxODgyNTUwfQ.-BeK5DpCLBiQKtT7pEwPyEeqI_bhFeLBzPRYGSUxBxE"
+Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMiwiZXhwIjoxNjMyMzMwNTk5fQ.j1x-dGVaAfglDNuBDdnHLI6MQYBj5dZ1YOG_aQFvOmA"
 
 {
     "title": "crart tips",
@@ -48,10 +48,15 @@ Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMywiZXhwIjoxNjMxODgy
 ###
 GET http://localhost:3001/notes
 Content-Type: application/json
-Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMywiZXhwIjoxNjMxODgyNTUwfQ.-BeK5DpCLBiQKtT7pEwPyEeqI_bhFeLBzPRYGSUxBxE"
+Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMiwiZXhwIjoxNjMyMzMwNTk5fQ.j1x-dGVaAfglDNuBDdnHLI6MQYBj5dZ1YOG_aQFvOmA"
+###
+
+###
+GET http://localhost:3001/notes/1
+Content-Type: application/json
 ###
 
 GET http://localhost:3001/notelist
 Content-Type: application/json
-Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMywiZXhwIjoxNjMxODgyNTUwfQ.-BeK5DpCLBiQKtT7pEwPyEeqI_bhFeLBzPRYGSUxBxE"
+Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMiwiZXhwIjoxNjMyMzMwNTk5fQ.j1x-dGVaAfglDNuBDdnHLI6MQYBj5dZ1YOG_aQFvOmA"
 
