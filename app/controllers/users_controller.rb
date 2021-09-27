@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :authorized, only: [:auto_login, :destroy, :index]
+    before_action :authorized, only: [:auto_login, :destroy, :index, :show]
 
     # all user accounts lsit
     def index
@@ -12,6 +12,14 @@ class UsersController < ApplicationController
       @user = User.all
 
       render json: { user: @user }
+    end
+
+    # GET /userslist/1
+
+    def show
+      @user = User.find(params[:id])
+
+      render json: @user
     end
 
   
